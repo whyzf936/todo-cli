@@ -1,0 +1,14 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 虚拟环境
+venv/
+.venv/
+
+# 本地数据文件
+.todo_cli/
+
+# 编辑器
+.vscode/
+.idea/
