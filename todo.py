@@ -165,25 +165,25 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_add = sub.add_parser("add", help="添加任务")
     p_add.add_argument("title", help="任务内容")
-    p_add.add_argument("--priority", choices=["high", "medium", "low"],
+    p_add.add_argument("-p", "--priority", choices=["high", "medium", "low"],
                        default="medium", help="优先级")
-    p_add.add_argument("--due", help="截止日期，格式 YYYY-MM-DD")
+    p_add.add_argument("-d", "--due", help="截止日期，格式 YYYY-MM-DD")
     p_add.set_defaults(func=add_task)
 
     p_list = sub.add_parser("list", help="列出所有任务")
     _status = p_list.add_mutually_exclusive_group()
     _status.add_argument("--pending", action="store_true", help="只显示未完成")
     _status.add_argument("--done", action="store_true", help="只显示已完成")
-    p_list.add_argument("--priority", choices=["high", "medium", "low"],
+    p_list.add_argument("-p", "--priority", choices=["high", "medium", "low"],
                         help="按优先级筛选")
     p_list.set_defaults(func=list_tasks)
 
     p_edit = sub.add_parser("edit", help="编辑任务")
     p_edit.add_argument("id", type=int, help="任务编号")
-    p_edit.add_argument("--title", help="新的任务内容")
-    p_edit.add_argument("--priority", choices=["high", "medium", "low"],
+    p_edit.add_argument("-t", "--title", help="新的任务内容")
+    p_edit.add_argument("-p", "--priority", choices=["high", "medium", "low"],
                         help="新的优先级")
-    p_edit.add_argument("--due", help="新的截止日期 YYYY-MM-DD")
+    p_edit.add_argument("-d", "--due", help="新的截止日期 YYYY-MM-DD")
     p_edit.set_defaults(func=edit_task)
 
     p_done = sub.add_parser("done", help="标记任务为完成")

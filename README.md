@@ -20,17 +20,17 @@
 ## 快速开始
 
 ```bash
-# 添加任务
-python todo.py add "买牛奶" --priority high --due 2026-09-20
+# 添加任务（-p 优先级，-d 截止日期）
+python todo.py add "买牛奶" -p high -d 2026-09-20
 
 # 查看所有任务
 python todo.py list
 
 # 只看未完成的高优先级任务
-python todo.py list --pending --priority high
+python todo.py list --pending -p high
 
-# 编辑任务 1 的标题和优先级
-python todo.py edit 1 --title "买两盒牛奶" --priority high
+# 编辑任务 1（-t 标题，-p 优先级）
+python todo.py edit 1 -t "买两盒牛奶" -p high
 
 # 标记任务 1 为完成
 python todo.py done 1
@@ -47,6 +47,25 @@ python todo.py stats
 # 清理所有已完成任务
 python todo.py clear
 ```
+
+### 参数速查
+
+| 短参数 | 长参数 | 作用 |
+|---|---|---|
+| `-p` | `--priority` | 优先级（high / medium / low） |
+| `-d` | `--due` | 截止日期（YYYY-MM-DD） |
+| `-t` | `--title` | 任务内容（`edit` 命令用） |
+
+### 哪里可以替换
+
+命令里这些部分是示例，换成你自己的内容：
+
+| 示例里写的 | 换成什么 |
+|---|---|
+| `"买牛奶"` | 你的任务内容 |
+| `1` | 任务编号（`list` 里 `#` 后面的数字） |
+| `high` | `high` / `medium` / `low` 三选一 |
+| `2026-09-20` | 你的截止日期 |
 
 ## 数据存储
 
